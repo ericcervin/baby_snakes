@@ -14,4 +14,11 @@ def main():
             conn)
     df.to_csv('reports/most_frequent_artists.csv')
 
+    df = pd.read_sql('''SELECT Label,Count(*)
+                        FROM release
+                        GROUP BY Label
+                        ORDER BY Count(*) DESC ;''',
+            conn)
+    df.to_csv('reports/most_frequent_labels.csv')
+
 main()
