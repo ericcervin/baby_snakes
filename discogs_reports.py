@@ -1,24 +1,28 @@
 import sqlite3
 import pandas as pd
 
-def main():
+def run_reporting():
+    
+    query = 'SELECT * FROM release;'
+    file = 'reports/all_releases.csv'
+    create_report(query,file)
+
+    query = 'SELECT Artist,Count(*) FROM release GROUP BY Artist ORDER BY Count(*) DESC ;'
+    file = 'reports/most_frequent_artists.csv'
+    create_report(query,file)
+
+    query = 'SELECT Label,Count(*) FROM release GROUP BY Label ORDER BY Count(*) DESC ;'
+    file = 'reports/most_frequent_labels.csv'
+    create_report(query,file)
+
+def create_report(query,file):
     conn = sqlite3.connect('databases/discogs.db')
-    df = pd.read_sql('SELECT * FROM release;',
-            conn)
-    df.to_csv('reports/all_releases.csv')
+    df = pd.read_sql(query,conn)
+    df.to_csv(file)
+    conn.close()
 
-    df = pd.read_sql('''SELECT Artist,Count(*)
-                        FROM release
-                        GROUP BY Artist
-                        ORDER BY Count(*) DESC ;''',
-            conn)
-    df.to_csv('reports/most_frequent_artists.csv')
-
-    df = pd.read_sql('''SELECT Label,Count(*)
-                        FROM release
-                        GROUP BY Label
-                        ORDER BY Count(*) DESC ;''',
-            conn)
-    df.to_csv('reports/most_frequent_labels.csv')
+def main():
+    run_reporting()
+    
 
 main()
