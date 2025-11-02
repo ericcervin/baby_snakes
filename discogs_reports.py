@@ -4,19 +4,19 @@ import pandas as pd
 def run_reporting():
     
     query = 'SELECT * FROM release;'
-    file = 'reports/all_releases.csv'
+    file = 'reports/discogs/all_releases.csv'
     create_report(query,file)
 
     query = 'SELECT Artist,Count(*) FROM release GROUP BY Artist ORDER BY Count(*) DESC ;'
-    file = 'reports/most_frequent_artists.csv'
+    file = 'reports/discogs/most_frequent_artists.csv'
     create_report(query,file)
 
     query = 'SELECT Label,Count(*) FROM release GROUP BY Label ORDER BY Count(*) DESC ;'
-    file = 'reports/most_frequent_labels.csv'
+    file = 'reports/discogs/most_frequent_labels.csv'
     create_report(query,file)
 
     query = 'SELECT Released,Count(*) FROM release GROUP BY Released ORDER BY Count(*) DESC ;'
-    file = 'reports/most_frequent_release_years.csv'
+    file = 'reports/discogs/most_frequent_release_years.csv'
     create_report(query,file)
 
 def create_report(query,file):
