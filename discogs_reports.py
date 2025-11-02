@@ -15,6 +15,10 @@ def run_reporting():
     file = 'reports/most_frequent_labels.csv'
     create_report(query,file)
 
+    query = 'SELECT Released,Count(*) FROM release GROUP BY Released ORDER BY Count(*) DESC ;'
+    file = 'reports/most_frequent_release_years.csv'
+    create_report(query,file)
+
 def create_report(query,file):
     conn = sqlite3.connect('databases/discogs.db')
     df = pd.read_sql(query,conn)
