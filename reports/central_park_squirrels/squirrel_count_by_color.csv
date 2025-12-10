@@ -1,5 +1,23 @@
-squirrel_color,squirrel_count
-Gray,2473
-Cinnamon,392
-Black,103
-Unknown,55
+primary_color,highlight_color,combo_color,squirrel_count
+Gray,,Gray+,895
+Gray,Cinnamon,Gray+Cinnamon,752
+Gray,White,Gray+White,489
+Gray,"Cinnamon, White","Gray+Cinnamon, White",265
+Cinnamon,Gray,Cinnamon+Gray,162
+Cinnamon,White,Cinnamon+White,94
+Black,,Black+,74
+Cinnamon,,Cinnamon+,62
+Cinnamon,"Gray, White","Cinnamon+Gray, White",58
+Unknown,,+,55
+Gray,"Black, Cinnamon, White","Gray+Black, Cinnamon, White",32
+Gray,Black,Gray+Black,24
+Black,Cinnamon,Black+Cinnamon,15
+Cinnamon,Black,Cinnamon+Black,10
+Gray,"Black, Cinnamon","Gray+Black, Cinnamon",9
+Black,Gray,Black+Gray,8
+Gray,"Black, White","Gray+Black, White",7
+Cinnamon,"Gray, Black","Cinnamon+Gray, Black",3
+Cinnamon,"Black, White","Cinnamon+Black, White",3
+Black,"Cinnamon, White","Black+Cinnamon, White",3
+Black,White,Black+White,2
+Black,"Gray, White","Black+Gray, White",1

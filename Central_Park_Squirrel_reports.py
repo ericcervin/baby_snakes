@@ -6,10 +6,13 @@ def run_reporting():
    file = 'reports/central_park_squirrels/all_squirrels.csv'
    create_report(query,file) 
 
-   query = '''SELECT COALESCE(NULLIF("Primary Fur Color", ''), 'Unknown') AS squirrel_color,
+   query = '''SELECT
+              COALESCE(NULLIF("Primary Fur Color", ''), 'Unknown') AS primary_color,
+              "Highlight Fur Color" AS highlight_color,
+              "Combination of Primary and Highlight Color"  AS combo_color,
               Count(*) AS 'squirrel_count'
               FROM squirrel
-              GROUP BY "Primary Fur Color"
+              GROUP BY combo_color
               ORDER BY squirrel_count DESC;
            '''
    file = 'reports/central_park_squirrels/squirrel_count_by_color.csv'
